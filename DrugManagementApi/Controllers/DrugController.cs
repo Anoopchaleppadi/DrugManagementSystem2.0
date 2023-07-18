@@ -42,8 +42,15 @@ namespace DrugManagementApi.Controllers
             drugList.Remove(drugToBeDeleted);
         }
 
-        [HttpGet("GetDrug")]
-        public Drug  GetDrug(int drugId)
+        //[HttpGet("GetDrug")]
+        //public Drug  GetDrug(int drugId)
+        //{
+        //    var drugRecord = drugList.Where(d => d.Id == drugId).FirstOrDefault();
+        //    return drugRecord;
+        //}
+
+        [HttpGet("GetDrug/{drugId}")] //Path parameter [it is mention the part of url]
+        public Drug GetDrug(int drugId)
         {
             var drugRecord = drugList.Where(d => d.Id == drugId).FirstOrDefault();
             return drugRecord;
