@@ -1,6 +1,8 @@
-﻿using DrugManagementApi.Models;
+﻿
+using DrugManagementApi.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+
 
 
 namespace DrugManagementApi.Controllers
@@ -11,17 +13,25 @@ namespace DrugManagementApi.Controllers
     {
         //hard code of drug because we dont have a db
 
-        private static  List<Drug> drugList = new List<Drug>()
+        //private static  List<Drug> drugList = new List<Drug>()
+        //{
+        //    new Drug{Name = "Dolo350", Id = 100,
+        //        SerialNumber = "AB100",  ManufacturedDate = new DateTime(2020,12,8),
+        //       ExpiredDate = new DateTime(2017,12,6) },
+
+        //     new Drug{Name = "CPM350", Id = 200,
+        //        SerialNumber = "XY200",  ManufacturedDate = new DateTime(2020,12,8),
+        //       ExpiredDate = new DateTime(2017,12,6) }
+
+        //};
+
+        //------------------------------
+
+        public DrugController()
         {
-            new Drug{Name = "Dolo350", Id = 100,
-                SerialNumber = "AB100",  ManufacturedDate = new DateTime(2020,12,8),
-               ExpiredDate = new DateTime(2017,12,6) },
+            DmsContext dbContext = new DmsContext();
 
-             new Drug{Name = "CPM350", Id = 200,
-                SerialNumber = "XY200",  ManufacturedDate = new DateTime(2020,12,8),
-               ExpiredDate = new DateTime(2017,12,6) }
-
-        };
+        }
         //method
         [HttpGet("GetAllDrugs")]
         public List<Drug> GetAll()
